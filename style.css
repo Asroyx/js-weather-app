@@ -36,3 +36,16 @@ body {
   margin-right: 16px;
   font-size: 18px;
 }
+.search button {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.search button img {
+  margin: 5px 1px 0 0;
+  width: 20px;
+}
