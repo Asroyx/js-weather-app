@@ -49,10 +49,16 @@ body {
   margin: 5px 1px 0 0;
   width: 20px;
 }
+.temp {
+  margin-left: 28px;
+}
 .temp i {
-  margin-left: 3px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 16px;
+  margin-left: 2px;
   font-style: normal;
-  font-size: 16px;
+  font-size: 25px;
 }
 .weather-icon {
   width: 170px;
