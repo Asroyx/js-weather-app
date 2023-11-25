@@ -9,21 +9,32 @@ const checkWeather = async (city) => {
   const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
   var data = await response.json();
 
-  console.log(data);
+  const weatherElements = document.querySelectorAll(".weather > *");
+  weatherElements.forEach((element) => {
+    element.style.opacity = "0";
+  });
 
-  document.querySelector(".city").innerHTML = data.name;
-  document.querySelector(".temp").innerHTML =
-    Math.round(data.main.temp) + `<i>°C</i>`;
-  document.querySelector(".humidity").innerHTML = data.main.humidity;
-  document.querySelector(".wind").innerHTML = data.wind.speed;
-  document.querySelector(
-    ".weather-icon"
-  ).src = `assets/${data.weather[0].main}.png`;
+  setTimeout(() => {
+    document.querySelector(".city").innerHTML = data.name;
+    document.querySelector(".temp").innerHTML =
+      Math.round(data.main.temp) + `<i>°C</i>`;
+    document.querySelector(".humidity").innerHTML = data.main.humidity;
+    document.querySelector(".wind").innerHTML = data.wind.speed;
+
+    document.querySelector(
+      ".weather-icon"
+    ).src = `assets/${data.weather[0].main}.png`;
+
+    // Tüm weather altındaki elementlerin opacity'sini 1'e ayarla
+    weatherElements.forEach((element) => {
+      element.style.opacity = "1";
+    });
+  }, 200);
 };
 
 searchBtn.addEventListener("click", () => {
   document.querySelector(".weather").style.display = "block";
   document.querySelector(".card").classList.add("expanded");
-
+  document.querySelector(".weather-icon");
   checkWeather(searchBox.value);
 });
