@@ -1,9 +1,12 @@
 const apiKey = "30b65fdef481df94e7c9a74e0daa2332";
 const apiUrl =
-  "https://api.openweathermap.org/data/2.5/weather?units=metric&q=florida";
+  "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
-const checkWeather = async () => {
-  const response = await fetch(apiUrl + `&appid=${apiKey}`);
+const searchBox = document.querySelector(".search input");
+const searchBtn = document.querySelector(".search button");
+
+const checkWeather = async (city) => {
+  const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
   var data = await response.json();
 
   console.log(data);
@@ -15,5 +18,9 @@ const checkWeather = async () => {
   document.querySelector(".wind").innerHTML = data.wind.speed;
   document.querySelector(".wind").innerHTML = data.wind.speed;
 };
+
+searchBtn.addEventListener("click", () => {
+  checkWeather(searchBox.value);
+});
 
 checkWeather();
