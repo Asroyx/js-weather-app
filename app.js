@@ -23,7 +23,7 @@ const checkWeather = async (city) => {
 
     document.querySelector(
       ".weather-icon"
-    ).src = `assets/${data.weather[0].main}.png`;
+    ).src = `assets/${data.weather[0].main.toLowerCase()}.png`;
 
     // Tüm weather altındaki elementlerin opacity'sini 1'e ayarla
     weatherElements.forEach((element) => {
