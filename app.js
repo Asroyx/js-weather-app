@@ -23,4 +23,5 @@ const checkWeather = async (city) => {
 
 searchBtn.addEventListener("click", () => {
   checkWeather(searchBox.value);
+  document.querySelector(".weather").style.display = "block";
 });

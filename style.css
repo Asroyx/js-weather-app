@@ -64,6 +64,9 @@ body {
   width: 170px;
   margin-top: 30px;
 }
+.weather {
+  display: none;
+}
 .weather h1 {
   font-size: 80px;
   font-weight: 500;
