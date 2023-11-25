@@ -67,6 +67,15 @@ body {
 .weather {
   display: none;
 }
+.card {
+  max-height: 200px;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.card.expanded {
+  max-height: 800px;
+}
+
 .weather h1 {
   font-size: 80px;
   font-weight: 500;

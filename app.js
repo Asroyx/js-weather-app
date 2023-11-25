@@ -22,6 +22,8 @@ const checkWeather = async (city) => {
 };
 
 searchBtn.addEventListener("click", () => {
-  checkWeather(searchBox.value);
   document.querySelector(".weather").style.display = "block";
+  document.querySelector(".card").classList.add("expanded");
+
+  checkWeather(searchBox.value);
 });
