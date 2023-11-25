@@ -16,11 +16,11 @@ const checkWeather = async (city) => {
     Math.round(data.main.temp) + `<i>°C</i>`;
   document.querySelector(".humidity").innerHTML = data.main.humidity;
   document.querySelector(".wind").innerHTML = data.wind.speed;
-  document.querySelector(".wind").innerHTML = data.wind.speed;
+  document.querySelector(
+    ".weather-icon"
+  ).src = `assets/${data.weather[0].main}.png`;
 };
 
 searchBtn.addEventListener("click", () => {
   checkWeather(searchBox.value);
 });
-
-checkWeather();
