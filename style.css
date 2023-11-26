@@ -14,7 +14,7 @@ body {
   max-width: 470px;
   background: linear-gradient(135deg, #00feba, #5b548a);
   color: #fff;
-  margin: 100px auto;
+  margin: 30px auto;
   border-radius: 20px;
   padding: 40px 35px;
   text-align: center;
@@ -23,7 +23,7 @@ body {
   transition: all 0.5s ease-in-out;
 }
 .card.expanded {
-  max-height: 1000px;
+  max-height: 1400px;
 }
 
 .search {
@@ -72,7 +72,8 @@ body {
   width: 170px;
   margin-top: 30px;
 }
-.weather > * {
+.weather > *,
+.card:last-child {
   opacity: 0;
   transition: all 0.2s ease;
 }
@@ -114,5 +115,9 @@ body {
 #card-history li {
   cursor: pointer;
   list-style-type: none;
-  font-size: 24px;
+  font-size: 28px;
+}
+.card h2 {
+  margin-top: -20px;
+  font-size: 32px;
 }
