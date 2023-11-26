@@ -111,3 +111,8 @@ body {
   font-size: 28px;
   margin-top: -6px;
 }
+#card-history li {
+  cursor: pointer;
+  list-style-type: none;
+  font-size: 24px;
+}
