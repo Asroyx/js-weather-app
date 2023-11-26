@@ -39,8 +39,11 @@ const checkWeather = async (city) => {
       ).src = `assets/${data.weather[0].main.toLowerCase()}.png`;
 
       historyUl.innerHTML += `<li>${
-        city[0].toUpperCase() + city.slice(1)
-      }</li>`;
+        city[0].toUpperCase() +
+        city.slice(1) +
+        " - " +
+        Math.round(data.main.temp)
+      }<i>°C</i></li>`;
 
       if (historyUl.querySelectorAll("li").length > 3) {
         historyUl.firstChild.remove();
@@ -58,7 +61,7 @@ const checkWeather = async (city) => {
 
 historyUl.addEventListener("click", (e) => {
   if (e.target.tagName === "LI") {
-    checkWeather(e.target.innerText);
+    checkWeather(e.target.innerText.split(" - ")[0]);
   }
 });
 
