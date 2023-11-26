@@ -4,11 +4,11 @@ const apiUrl =
 
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
-const historyContainer = document.querySelector("#card-history");
-
-var liCount = historyContainer.getElementsByTagName("li").length;
+const historyContainer = document.querySelector("#card-history").parentNode;
+const historyUl = document.querySelector("#card-history");
 
 historyContainer.style.opacity = "0";
+var liCount = historyUl.getElementsByTagName("li").length;
 
 const checkWeather = async (city) => {
   try {
@@ -38,7 +38,13 @@ const checkWeather = async (city) => {
         ".weather-icon"
       ).src = `assets/${data.weather[0].main.toLowerCase()}.png`;
 
-      historyContainer.innerHTML += `<li>${city}</li>`;
+      historyUl.innerHTML += `<li>${
+        city[0].toUpperCase() + city.slice(1)
+      }</li>`;
+
+      if (historyUl.querySelectorAll("li").length > 3) {
+        historyUl.firstChild.remove();
+      }
 
       weatherElements.forEach((element) => {
         element.style.opacity = "1";
@@ -50,7 +56,7 @@ const checkWeather = async (city) => {
   }
 };
 
-historyContainer.addEventListener("click", (e) => {
+historyUl.addEventListener("click", (e) => {
   if (e.target.tagName === "LI") {
     checkWeather(e.target.innerText);
   }
