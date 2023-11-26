@@ -8,7 +8,7 @@ const historyContainer = document.querySelector("#card-history");
 
 var liCount = historyContainer.getElementsByTagName("li").length;
 
-historyContainer.style.opacity = "1"; // change
+historyContainer.style.opacity = "0";
 
 const checkWeather = async (city) => {
   try {
