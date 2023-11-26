@@ -4,6 +4,11 @@ const apiUrl =
 
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
+const historyContainer = document.querySelector("#card-history");
+
+var liCount = historyContainer.getElementsByTagName("li").length;
+
+historyContainer.style.opacity = "1"; // change
 
 const checkWeather = async (city) => {
   try {
@@ -33,14 +38,23 @@ const checkWeather = async (city) => {
         ".weather-icon"
       ).src = `assets/${data.weather[0].main.toLowerCase()}.png`;
 
+      historyContainer.innerHTML += `<li>${city}</li>`;
+
       weatherElements.forEach((element) => {
         element.style.opacity = "1";
+        historyContainer.style.opacity = "1";
       });
     }, 200);
   } catch (error) {
     alert(error);
   }
 };
+
+historyContainer.addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    checkWeather(e.target.innerText);
+  }
+});
 
 searchBox.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
