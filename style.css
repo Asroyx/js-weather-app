@@ -112,12 +112,16 @@ body {
   font-size: 28px;
   margin-top: -6px;
 }
+#card-history li:hover {
+  color: rgb(238, 238, 238);
+}
 #card-history li {
   cursor: pointer;
   list-style-type: none;
   font-size: 28px;
+  transition: all 0.3s ease;
 }
 .card h2 {
-  margin-top: -20px;
+  margin-top: -30px;
   font-size: 32px;
 }
