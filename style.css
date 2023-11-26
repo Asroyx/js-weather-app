@@ -10,7 +10,7 @@ body {
   background: #222;
 }
 .card {
-  width: 90%;
+  width: 100%;
   max-width: 470px;
   background: linear-gradient(135deg, #00feba, #5b548a);
   color: #fff;
@@ -18,13 +18,21 @@ body {
   border-radius: 20px;
   padding: 40px 35px;
   text-align: center;
+  max-height: 200px;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
 }
+.card.expanded {
+  max-height: 1000px;
+}
+
 .search {
   width: 100%;
   display: flex;
   align-items: center;
 }
 .search input {
+  min-width: 100px;
   border: 0;
   outline: 0;
   background: #ebfffc;
@@ -70,14 +78,6 @@ body {
 }
 .weather {
   display: none;
-}
-.card {
-  max-height: 200px;
-  overflow: hidden;
-  transition: all 0.5s ease-in-out;
-}
-.card.expanded {
-  max-height: 1000px;
 }
 
 .weather h1 {
