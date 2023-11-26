@@ -13,6 +13,7 @@ const checkWeather = async (city) => {
   weatherElements.forEach((element) => {
     element.style.opacity = "0";
   });
+  searchBox.value = "";
 
   setTimeout(() => {
     document.querySelector(".city").innerHTML = data.name;
@@ -20,18 +21,22 @@ const checkWeather = async (city) => {
       Math.round(data.main.temp) + `<i>°C</i>`;
     document.querySelector(".humidity").innerHTML = data.main.humidity;
     document.querySelector(".wind").innerHTML = data.wind.speed;
-
     document.querySelector(
       ".weather-icon"
     ).src = `assets/${data.weather[0].main.toLowerCase()}.png`;
 
-    // Tüm weather altındaki elementlerin opacity'sini 1'e ayarla
     weatherElements.forEach((element) => {
       element.style.opacity = "1";
     });
   }, 200);
 };
 
+searchBox.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    searchBtn.click();
+  }
+});
 searchBtn.addEventListener("click", () => {
   document.querySelector(".weather").style.display = "block";
   document.querySelector(".card").classList.add("expanded");
